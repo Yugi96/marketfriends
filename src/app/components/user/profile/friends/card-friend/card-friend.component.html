@@ -1,0 +1,11 @@
+<div class="content-friend" [routerLink]="[ '/profile', friend.username ]">
+  <div class="content-friend-image-profile">
+    <img *ngIf="friend.images.length === 0 && friend.gender == 'male'" class="content-friend-image-profile__img" src="assets/img/male-profile.png">
+    <img *ngIf="friend.images.length === 0 && friend.gender == 'female'" class="content-friend-image-profile__img" src="assets/img/female-profile.png">
+    <img *ngIf="friend.image_profile" class="content-friend-image-profile__img"  src="{{ url + '/user/public/image/' + friend.image_profile }}" alt="">
+  </div>
+  <div class="content-name-user">
+    <span class="content-name-user-fullname">{{ friend.first_name +' '+ friend.last_name }}</span>
+    <span class="content-name-user-username">{{ friend.username }}</span>
+  </div>
+</div>

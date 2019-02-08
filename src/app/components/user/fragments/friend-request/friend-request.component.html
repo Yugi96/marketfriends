@@ -1,0 +1,18 @@
+<div class="dashed-item">
+  <div class="item-notification">
+    <div class="menu-item-img-profile item-notification-img-profile" [routerLink]="[ '/profile', friendRequest.username ]">
+      <img *ngIf="friendRequest.images.length === 0 && friendRequest.gender == 'male'" class="content-friend-image-profile__img" src="assets/img/male-profile.png">
+      <img *ngIf="friendRequest.images.length === 0 && friendRequest.gender == 'female'" class="content-friend-image-profile__img" src="assets/img/female-profile.png">
+      <img *ngIf="friendRequest.image_profile" class="content-friend-image-profile__img"  src="{{ url + '/user/public/image/' + friendRequest.image_profile }}" alt="">
+    </div>
+    <div class="item-notification-description">
+      <div class="item-notification-description-text" [routerLink]="[ '/profile', friendRequest.username ]">
+          {{ friendRequest.first_name +' '+ friendRequest.last_name }} ({{ friendRequest.username }})
+      </div>
+      <div class="content-btn-request">
+        <button (click)="actionFriend('accept', friendRequest.username, 'FR02')" class="btn btn-accept btn-action __success-bg" ><fa-icon [icon]="faCheckCircle"></fa-icon><span>Aceptar solicitud</span></button>
+        <button (click)="actionFriend('cancel', friendRequest.username, 'FR02')" class="btn btn-error btn-action"><fa-icon [icon]="faBan"></fa-icon><span>Cancelar solicitud</span></button>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,14 @@
+.content-photos {
+  display: grid;
+  /* flex-wrap: wrap; */
+  margin-top: 15px;
+  background: rgb(var(--white-color));
+  border-radius: 3px;
+  border: 1px solid rgba(var(--black-color), .2);
+  width: 100%;
+  grid-template-columns: repeat(3, 1fr);
+  grid-column-gap: 5px;
+  grid-row-gap: 5px;
+  /* grid-auto-flow: column; */
+  padding: 5px;
+}

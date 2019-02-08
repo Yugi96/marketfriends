@@ -1,0 +1,21 @@
+.content-message-chat {
+  width: 100%;
+  padding-bottom: 5px;
+  display: flex;
+}
+
+.content-message-text {
+  background: rgb(var(--primary-color));
+  color: rgb(var(--white-color));
+  width: auto;
+  padding: 5px 10px;
+  border-radius: 5px;
+}
+
+.from {
+  justify-content: flex-end;
+}
+
+.from .content-message-text {
+  background: rgb(var(--info-color));
+}

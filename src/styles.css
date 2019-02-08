@@ -1,0 +1,67 @@
+/* You can add global styles to this file, and also import other style files */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  font-family: 'Lato', sans-serif;
+  outline: none;
+}
+
+:root {
+  --primary-color: 0, 172, 115; /* #00AC73; */
+  --secondary-color:  0, 127, 85;/* #00402B; */
+  --third-color: 0, 64, 43; /* #007F55; */
+  --white-color: 255, 255, 255;/* #fff; */
+  --black-color: 0, 0, 0;/* #000;*/
+  --background-color: 233,235,238;
+  --success-color: 19, 172, 139; /* 13AC8B */
+  --error-color: 172, 44, 46; /* AC2C2E */
+  --info-color: 60, 123, 172; /* 3C7BAC */
+  --warning-color: 255, 181, 50; /* FFB532 */
+}
+
+body {
+  width: 100%;
+  height: 100vh;
+  background: rgb(var(--background-color));
+}
+
+h1 {
+  padding: 0;
+  margin: 0;
+}
+
+input[type="file"] {
+  display: none;
+}
+
+.content-loading {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #fff;
+}
+
+.loading {
+  width: 100px;
+  height: 100px;
+  background: transparent;
+  border-top: 5px solid rgb(var(--primary-color));
+  border-right: 5px solid transparent;
+  animation: loading 1s infinite linear;
+  border-radius: 50%;
+}
+
+@keyframes loading {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg)
+  }
+}

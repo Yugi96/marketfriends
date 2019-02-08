@@ -1,0 +1,170 @@
+.content-message-friends {
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  background: rgb(var(--white-color));
+  height: 500px;
+  border-radius: 5px;
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
+  box-shadow: 0 0 5px 1px rgba(var(--black-color), .3);
+  margin-right: 5px;
+  overflow: hidden;
+  transition: all .3s ease;
+  z-index: 1000;
+}
+
+.dashed-item {
+  border-bottom: 1px dashed rgba(var(--third-color), .5);
+  cursor: pointer;
+}
+
+.menu-item-img-profile {
+  width: 10px;
+  height: 10px;
+  background: #000;
+  border-radius: 50%;
+  margin-left: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+
+.item-notification {
+  display: flex;
+  align-items: center;
+  font-weight: normal;
+  height: 50px;
+  padding: 5px 20px;
+}
+
+.item-notification-img-profile {
+  width: 30px;
+  height: 30px;
+  margin-right: 10px;
+  margin-left: 0;
+  cursor: pointer;
+}
+
+.menu-item-img-profile__img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.item-notification-description {
+  flex: 1;
+  font-size: 12px;
+}
+
+.item-notification-description-time {
+  opacity: .5;
+  font-weight: 700;
+}
+
+.unread {
+  font-weight: 700;
+  background: rgba(var(--primary-color), .05);
+}
+
+.btn {
+  padding: 0;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: .3em 1em;
+  user-select: none;
+}
+
+.content-btn-request {
+  display: flex;
+}
+
+.content-btn-request button {
+  padding: 10px;
+  font-size: 10px;
+  margin-right: 5px;
+}
+
+.btn-accept {
+  background: rgb(var(--info-color));
+  color: rgb(var(--white-color));
+  border-radius: 5px;
+  padding: 0 50px;
+  font-weight: 700;
+}
+
+.btn-action {
+  /* padding: 10px 20px; */
+  margin-top: 3px;
+}
+
+.btn-action > span {
+  margin-left: 10px;
+}
+
+.btn-accept > span {
+  margin-left: 15px;
+}
+
+.btn-accept:hover {
+  background: rgb(var(--success-color));
+}
+
+.__success-bg {
+  background: rgb(var(--success-color));
+}
+
+.__success-bg:hover {
+  background: rgb(var(--info-color));
+}
+
+.btn-error {
+  background: rgb(var(--error-color));
+  color: rgb(var(--white-color));
+  border-radius: 5px;
+  padding: 0 50px;
+  font-weight: 700;
+}
+
+.btn-error > span {
+  margin-left: 15px;
+}
+
+.btn-error:hover {
+  background: rgb(var(--warning-color));
+}
+
+.content-friend-image-profile__img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.content-image {
+  width: 100%;
+  height: 100%;
+}
+
+
+
+.header-message {
+  background: rgb(var(--primary-color));
+  color: rgb(var(--white-color));
+  padding: 0;
+}
+
+.header-message .item-notification-description-text:hover {
+  color: rgb(var(--white-color));
+  text-decoration: none;
+}
+
+.item-notification-header {
+  height: 20px;
+  cursor: pointer;
+}
+
+.showContentMessages {
+  transform: translateY(480px);
+}

@@ -1,0 +1,13 @@
+<div class="content-loading" *ngIf="loading" >
+  <div class="loading"></div>
+</div>
+<div class="form-body-logo" *ngIf="loading === false">
+    <img class="logo-img" src="assets/img/marketfriends-logo-primary-color.svg" alt="">
+</div>
+<form #loginForm="ngForm" (ngSubmit)="onSubmit(loginForm);" class="form-body-fields" *ngIf="loading === false">
+  <input type="email" name="email" #email="ngModel" [(ngModel)]="user.email" class="input" placeholder="Ingrese su email" required>
+  <input type="password" name="password" #password="ngModel" [(ngModel)]="user.password" class="input" placeholder="Ingrese su password" required>
+  <input type="submit" class="btn btn-signup" value="Iniciar Sesión" [disabled]="!loginForm.form.valid">
+  <a (click)="restorePassword()" class="btn btn-restored-password">He olvidado mi contraseña</a>
+</form>
+<ng-snotify></ng-snotify>

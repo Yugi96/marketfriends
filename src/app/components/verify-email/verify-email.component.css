@@ -1,0 +1,17 @@
+.btn {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: .3em 1em;
+}
+.btn-signup {
+  background: rgb(var(--primary-color));
+  color: rgb(var(--white-color));
+  border-radius: 5px;
+  padding: .8em 1.5em;
+  margin-bottom: 1em;
+}
+
+.btn-signup:hover {
+  background: rgb(var(--secondary-color));
+}

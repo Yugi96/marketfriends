@@ -1,0 +1,18 @@
+<div class="publication-comments-item-content">
+  <div class="publication-comments-item">
+    <div class="publications-header-img-profile publication-comments-create-img-profile" [routerLink]="[ '/profile', commentItem.user.username ]">
+      <img *ngIf="commentItem.user.image_profile === '' && commentItem.user.gender == 'male'" class="menu-item-img-profile__img" src="assets/img/male-profile.png">
+      <img *ngIf="commentItem.user.image_profile === '' && commentItem.user.gender == 'female'" class="menu-item-img-profile__img" src="assets/img/female-profile.png">
+      <img *ngIf="commentItem.user.image_profile" class="menu-item-img-profile__img" src="{{ url + '/user/public/image/' + commentItem.user.image_profile }}" alt="">
+    </div>
+    <div class="content-body-to-post-body__input publication-comments-item__input">
+      <span class="publication-comments-item__user" [routerLink]="[ '/profile', commentItem.user.username ]">
+        {{ commentItem.user.first_name + ' ' + commentItem.user.last_name }} <span class="publications-header-description-username__nickname">- {{ commentItem.user.username }}</span>
+      </span>
+      <span class="comment-item-text" >{{ commentItem.text }}</span>
+    </div>
+  </div>
+  <div class="publication-comments-item-footer">
+    {{ commentItem.createdAt | amLocale:'es' | amTimeAgo:true }}
+  </div>
+</div>

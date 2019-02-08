@@ -1,0 +1,13 @@
+<div class="publication-comments">
+  <div class="publication-comments-create">
+    <div class="publications-header-img-profile publication-comments-create-img-profile" [routerLink]="[ '/profile', identity.username ]">
+      <img *ngIf="identity.image_profile === '' && identity.gender == 'male'" class="menu-item-img-profile__img" src="assets/img/male-profile.png">
+      <img *ngIf="identity.image_profile === '' && identity.gender == 'female'" class="menu-item-img-profile__img" src="assets/img/female-profile.png">
+      <img *ngIf="identity.image_profile" class="menu-item-img-profile__img" src="{{ url + '/user/public/image/' + identity.image_profile }}" alt="">
+    </div>
+    <textarea #textarea (keyup)="auto_grow(textarea, 40, 10)" (keydown.enter)="addComment(publication.id, publication.filename ? 'image' : 'publication', textarea)" class="content-body-to-post-body__input publication-comments-create__input" name="" placeholder="Escribe un comentario..."></textarea>
+  </div>
+  <div class="publication-comments-list">
+    <app-comment-item *ngFor="let commentItem of arrayComments" [commentItem]="commentItem"></app-comment-item>
+  </div>
+</div>

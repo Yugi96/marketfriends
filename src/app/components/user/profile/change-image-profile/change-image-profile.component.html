@@ -1,0 +1,23 @@
+<div class="content-modal">
+  <div class="modal">
+    <div class="modal-header">
+      <div>
+        <span>Cambiar foto de perfil</span>
+        <label for="file" class="label-icon"><fa-icon [icon]="faCamera"></fa-icon></label>
+        <input type="file" name="file" #inputImageProfile id="file" (change)="getImage(inputImageProfile); fileChangeEvent($event); selectImage=''">
+      </div>
+      <span class="label-icon" (click)="close()"><fa-icon [icon]="faTimes"></fa-icon></span>
+    </div>
+    <div class="model-body">
+      <div class="content-photos">
+          <app-image *ngFor="let photo of arrayPhotos" [photo]="photo" (selectImage)="selectImage=$event; filesToUpload=[]"></app-image>
+      </div>
+    </div>
+    <div class="modal-footer">
+      <div class="content-image-upload">
+          <img *ngIf="selectImage || filesToUpload.length !== 0" #imgProfile class="content-image-upload__img" src="{{ url + '/user/public/image/' + selectImage }}">
+      </div>
+      <button class="btn btn-ok" (click)="changeImageProfile()"><fa-icon [icon]="faCheck"></fa-icon></button>
+    </div>
+  </div>
+</div>

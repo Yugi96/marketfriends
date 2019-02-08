@@ -1,0 +1,12 @@
+<div class="content-chat">
+  <div class="content-chat-header">
+    <div class="content-chat-header-title">{{ chat.first_name }} {{ chat.last_name }} - {{ chat.username }}</div>
+    <div class="content-chat-header-close" (click)="getChatUser(chat)"><fa-icon [icon]="faTimes"></fa-icon></div>
+  </div>
+  <div class="content-chat-body" #contentMessages>
+    <app-message-chat *ngFor="let message of arrayMessages" [message]="message"></app-message-chat>
+  </div>
+  <div class="content-chat-footer">
+    <textarea #messageInput (keydown.enter)="sendMessage(messageInput, chat.username)" name="" id="" cols="30" rows="10" placeholder="Escribe tu mensaje..." class="input-message"></textarea>
+  </div>
+</div>

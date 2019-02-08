@@ -1,0 +1,8 @@
+<div class="content-loading" *ngIf="loading" >
+  <div class="loading"></div>
+</div>
+<div class="" *ngIf="loading === false">
+  <p *ngIf="sendEmail">Se envio un mensaje de restablecimiento de contrasea a su correo</p>
+  <p *ngIf="errorCode">El codigo de restauracion es incorrecto</p>
+  <p *ngIf="okRestore">Su contrase;a se restablecio con exito</p>
+</div>

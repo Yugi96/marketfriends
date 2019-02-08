@@ -1,0 +1,163 @@
+.form-body-logo {
+  font-size: 8em;
+  text-align: center;
+  font-weight: 700;
+  margin: .1em 0;
+}
+
+.content-image-profile {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  margin-right: 20px;
+}
+
+.content-inputs {
+  display: flex;
+  flex-direction: column;
+}
+
+.input {
+  width: 300px;
+  padding: .5em 1em;
+  outline: none;
+  border: none;
+  margin-bottom: 1em;
+  border: 1px solid rgb(var(--secondary-color));
+  text-align: center;
+  border-radius: 10px;
+}
+
+.form-body-fields {
+  display: flex;
+  padding: 30px 50px;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+  /* width: 80%; */
+}
+
+.btn {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: .3em 1em;
+}
+
+.btn-signup {
+  background: rgb(var(--primary-color));
+  color: rgb(var(--white-color));
+  border-radius: 5px;
+  padding: .8em 1.5em;
+  margin-bottom: 1em;
+}
+
+.btn-signup:hover {
+  background: rgb(var(--secondary-color));
+}
+
+.image-profile-register {
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  background: rgb(var(--white-color));
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.img-image-profile-register {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.icon-camera {
+  color: rgb(var(--primary-color));
+  font-size: 20px;
+  margin-top: 10px;
+}
+
+
+
+
+/* The container */
+.container {
+  display: block;
+  position: relative;
+  padding-left: 35px;
+  margin-bottom: 12px;
+  cursor: pointer;
+  font-size: 22px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+/* Hide the browser's default radio button */
+.container input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+}
+
+/* Create a custom radio button */
+.checkmark {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 25px;
+  width: 25px;
+  background-color: #eee;
+  border-radius: 50%;
+}
+
+/* On mouse-over, add a grey background color */
+.container:hover input ~ .checkmark {
+  background-color: #ccc;
+}
+
+/* When the radio button is checked, add a blue background */
+.container input:checked ~ .checkmark {
+  background-color: rgb(var(--primary-color));
+}
+
+/* Create the indicator (the dot/circle - hidden when not checked) */
+.checkmark:after {
+  content: "";
+  position: absolute;
+  display: none;
+}
+
+/* Show the indicator (dot/circle) when checked */
+.container input:checked ~ .checkmark:after {
+  display: block;
+}
+
+/* Style the indicator (dot/circle) */
+.container .checkmark:after {
+ 	top: 9px;
+	left: 9px;
+	width: 8px;
+	height: 8px;
+	border-radius: 50%;
+	background: white;
+}
+
+
+
+@media (max-width: 501px) {
+  .form-body-fields {
+    flex-wrap: wrap;
+  }
+
+  .image-profile-register {
+    width: 100px;
+    height: 100%;
+  }
+}

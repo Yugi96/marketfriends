@@ -1,0 +1,38 @@
+<div class="content-loading" *ngIf="loading" >
+  <div class="loading"></div>
+</div>
+<div class="content-informations" *ngIf="!loading">
+  <div class="content-labels-information">
+    <div class="content-information">
+      <div class="content-label-information">
+        <p class="label-information __primary">Nickname</p>
+      </div>
+      <p class="input-information">{{ userProfile.username }}</p>
+    </div>
+    <div class="content-information">
+      <div class="content-label-information">
+        <p class="label-information __error">Nombres</p>
+      </div>
+      <p class="input-information">{{ userProfile.first_name }}</p>
+    </div>
+    <div class="content-information">
+      <div class="content-label-information">
+        <p class="label-information __success">Apellidos</p>
+      </div>
+      <p class="input-information">{{ userProfile.last_name }}</p>
+    </div>
+    <div class="content-information">
+      <div class="content-label-information">
+        <p class="label-information">Correo electrónico</p>
+      </div>
+      <p class="input-information">{{ userProfile.email }}</p>
+    </div>
+    <div class="content-information">
+      <div class="content-label-information">
+        <p class="label-information __warning">Género</p>
+      </div>
+      <p class="input-information">{{ userProfile.gender === 'male' ? 'Masculino' : 'Femenino'  }}</p>
+    </div>
+  </div>
+  <button *ngIf="identity.username === userProfile.username" class="btn btn-accept"><fa-icon [icon]="faUserEdit"></fa-icon><span>Editar información</span></button>
+</div>

@@ -1,0 +1,13 @@
+<div class="content-message-friends" [ngClass]="{'showContentMessages': !showMessagesContent}" (click)="getFriends()">
+  <div class="dashed-item header-message">
+    <div class="item-notification item-notification-header" (click)="showMessagesContent = !showMessagesContent">
+      <div class="item-notification-description">
+        <div class="item-notification-description-text">
+            Mensajes
+        </div>
+      </div>
+    </div>
+  </div>
+  <app-user-friend *ngFor="let friend of friends" [friend]="friend.Friend.username === identity.username ? friend.Me : friend.Friend " (getUserFriend)="getDataFriend($event)"></app-user-friend>
+
+</div>

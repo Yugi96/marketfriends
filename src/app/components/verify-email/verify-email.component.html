@@ -1,0 +1,10 @@
+<div class="content-loading" *ngIf="loading" >
+  <div class="loading"></div>
+</div>
+<div class="content-verify-email" *ngIf="loading === false">
+  <p *ngIf="re">Necesita activar su cuenta revise su correo electronico: {{ email }}</p>
+  <p *ngIf="re === false">Se envio un mensaje de confirmación a su correo electronico: {{ email }}</p>
+  <button class="btn btn-signup" *ngIf="verifyAccount === undefined" (click)="resendEmail(email)">Reenviar mensaje de activacion</button>
+  <p *ngIf="verifyAccount === true || verifyAccount === false">{{ verifyAccountMessage }}</p>
+</div>
+<ng-snotify></ng-snotify>

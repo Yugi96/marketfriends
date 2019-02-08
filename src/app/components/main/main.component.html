@@ -1,0 +1,143 @@
+<div class="content-loading" *ngIf="loading" >
+  <div class="loading"></div>
+</div>
+<div class="content-app" *ngIf="!loading">
+  <div class="container-nav">
+    <nav class="content-nav">
+      <div class="logo-content">
+        <img class="logo-img" src="assets/img/marketfriends-logo-large.svg" *ngIf="!identity" alt="">
+        <img class="logo-img-sm" src="assets/img/marketfriends-logo-sm.svg" *ngIf="identity" alt="">
+      </div>
+      <div class="content-search">
+        <input type="text" (click)="getUsers()" name="" id="" [(ngModel)]="userFilter.username" *ngIf="identity" class="input-search" placeholder="Buscar...">
+        <ul *ngIf="userFilter.username !== ''" class="content-users-filter">
+          <li (click)="userFilter.username = ''" class="dashed-item content-users-filter__item" *ngFor="let user of users | filterBy: userFilter" [routerLink]="['/profile', user.username]">
+            <div class="item-notification">
+              <div class="menu-item-img-profile item-notification-img-profile">
+                <img *ngIf="user.image_profile.length === 0 && user.gender == 'male'" class="content-friend-image-profile__img" src="assets/img/male-profile.png">
+                <img *ngIf="user.image_profile.length === 0 && user.gender == 'female'" class="content-friend-image-profile__img" src="assets/img/female-profile.png">
+                <img *ngIf="user.image_profile.length !== 0" class="content-friend-image-profile__img"  src="{{ url + '/user/public/image/' + user.image_profile }}" alt="">
+              </div>
+              <div class="item-notification-description">
+                <div class="item-notification-description-text">
+                    {{ user.first_name + ' ' + user.last_name + ' - ' + user.username}}
+                </div>
+              </div>
+            </div>
+          </li>
+          <li *ngIf="(users | filterBy: userFilter).length === 0">No existe el usuario</li>
+        </ul>
+      </div>
+      <ul class="content-menu">
+        <li class="dashed-separation" *ngIf="!identity">
+          <button [routerLink]="['/auth']" class="btn btn-menu">Acceder</button>
+        </li>
+        <li class="dashed-separation" *ngIf="identity">
+          <button class="btn btn-menu" (click)="showFriendsRequest = false;
+            showMessages = false;
+            showMenuProfile = false;
+            showNotifications = false" [routerLink]="['/']"><fa-icon [icon]="faHome"></fa-icon></button>
+        </li>
+        <li class="dashed-separation" *ngIf="identity">
+          <button class="btn btn-menu" (click)="showFriendsRequest = !showFriendsRequest;
+           showMessages = false;
+           showMenuProfile = false;
+           showNotifications = false;
+           getFriendRequest()">
+           <span class="count-notification" *ngIf="identity" [hidden]="countFriendRequest === 0">{{ countFriendRequest }}</span>
+           <fa-icon [icon]="faUserFriends"></fa-icon>
+          </button>
+          <div class="content-options-menu" [hidden]="!showFriendsRequest" [ngClass]="{
+            'show-notifications': showFriendsRequest
+          }">
+            <div class="content-options-menu-header">
+              Solicitudes de amistad
+            </div>
+            <div class="content-options-menu-body">
+              <app-friend-request (click)="getFriendRequest()" *ngFor="let friendRequest of arrayFriendsRequest" [friendRequest]="friendRequest.Friend"></app-friend-request>
+            </div>
+            <div class="content-options-menu-footer">
+              Ver todas
+            </div>
+          </div>
+        </li>
+        <li class="dashed-separation" *ngIf="identity">
+          <button class="btn btn-menu" (click)="showFriendsRequest = false;
+          showMessages = false;
+          showMenuProfile = false;
+          showNotifications = !showNotifications;
+          getNotifications();
+          readNotification()">
+            <span class="count-notification" *ngIf="identity" [hidden]="countNotification === 0">{{ countNotification }}</span>
+            <fa-icon [icon]="faBell"></fa-icon>
+          </button>
+          <div class="content-options-menu" [hidden]="!showNotifications" [ngClass]="{
+            'show-notifications': showNotifications
+          }">
+            <div class="content-options-menu-header">
+              Notificaciones
+            </div>
+            <div class="content-options-menu-body" *ngIf="identity">
+              <app-notification *ngFor="let notification of arrayNotifications" [notification]="notification"></app-notification>
+            </div>
+            <div class="content-options-menu-footer">
+              Ver todas
+            </div>
+          </div>
+        </li>
+        <li class="dashed-separation" *ngIf="identity">
+          <button class="btn btn-menu" (click)="showFriendsRequest = false;
+          showMessages = false;
+          showNotifications = false;
+          showMenuProfile = !showMenuProfile">
+            {{ identity.username }}
+            <div class="menu-item-img-profile">
+              <img *ngIf="identity.image_profile === '' && identity.gender == 'male'" class="menu-item-img-profile__img" src="assets/img/male-profile.png">
+              <img *ngIf="identity.image_profile === '' && identity.gender == 'female'" class="menu-item-img-profile__img" src="assets/img/female-profile.png">
+              <img *ngIf="identity.image_profile" class="menu-item-img-profile__img" src="{{ url + '/user/public/image/' + identity.image_profile }}" alt="">
+            </div>
+          </button>
+          <div class="content-options-menu content-options-menu__profile" [hidden]="!showMenuProfile" [ngClass]="{
+            'show-notifications': showMenuProfile
+          }" (click)="showFriendsRequest = false;
+          showMessages = false;
+          showNotifications = false;
+          showMenuProfile = !showMenuProfile" >
+            <div class="content-options-menu-header">
+              {{ identity.first_name }} {{ identity.last_name }}
+            </div>
+            <div class="content-options-menu-body content-options-menu-body__profile">
+              <div class="dashed-item">
+                <div class="item-notification item-notification__profile"  [routerLink]="['/profile', identity.username]">
+                  <a class="label-profile">Perfil</a>
+                </div>
+              </div>
+            </div>
+            <div (click)="logout()" class="content-options-menu-footer">
+              Cerrar Sesión
+            </div>
+          </div>
+        </li>
+      </ul>
+    </nav>
+  </div>
+  <div class="content-main" *ngIf="identity && token">
+    <ng-snotify></ng-snotify>
+    <app-messages (getFriend)="addChat($event)" *ngIf="identity"></app-messages>
+    <div class="content-chats-actives" *ngIf="identity">
+      <app-chat *ngFor="let activeChat of activesChats" [chat]="activeChat" (chatClose)="closeChat($event)"></app-chat>
+    </div>
+    <router-outlet></router-outlet>
+  </div>
+  <div class="div-background-main">
+    <img class="div-background-main__img" src="assets/img/background-main.jpg" alt="">
+  </div>
+</div>
+
+<!-- (click)="showFriendsRequest = false;
+showMessages = false;
+showMenuProfile = false;
+showNotifications = false;" (click)="showFriendsRequest = false;
+showMessages = false;
+showMenuProfile = false;
+showNotifications = false;" -->

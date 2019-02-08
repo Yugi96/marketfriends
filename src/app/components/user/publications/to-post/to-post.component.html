@@ -1,0 +1,21 @@
+<form [formGroup]="postPublicationForm" (ngSubmit)="onSubmit(postPublicationForm);" class="content-body-to-post">
+  <div class="content-body-to-post-header">
+    Crear publicación
+  </div>
+  <div class="content-body-to-post-body">
+    <textarea formControlName="text" #textareaPublication (keyup)="auto_grow(textareaPublication, 50, '')" class="content-body-to-post-body__input" name="text" placeholder="Publica algo para tus amigos..."></textarea>
+  </div>
+  <div class="content-body-to-post-footer">
+    <div class="content-icon-image-preview">
+      <div class="content-btn">
+        <label for="images" class="btn-content-icon"><div class="btn-icon"><img class="btn-icon__img" src="assets/img/gallery.svg" alt="Subir imagen"></div><span>Imagen</span></label>
+        <input type="file" accept="image/*"  id="images" (change)="getImage(images); fileChangeEvent($event)" #images>
+      </div>
+      <div class="content-image-upload">
+          <img *ngIf="filesToUpload.length !== 0" #imgProfile class="content-image-upload__img" src="">
+      </div>
+    </div>
+    <button class="btn btn-accept" type="submit">Publicar</button>
+  </div>
+</form>
+

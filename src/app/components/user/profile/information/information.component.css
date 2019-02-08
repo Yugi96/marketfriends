@@ -1,0 +1,90 @@
+.content-informations {
+  display: flex;
+  margin-top: 15px;
+  background: rgb(var(--white-color));
+  border-radius: 3px;
+  border: 1px solid rgba(var(--black-color), .2);
+  width: 100%;
+  padding: 15px;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+p {
+  padding: 0;
+  margin: 0;
+}
+
+.content-labels-information {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.content-information {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-bottom: 15px;
+}
+
+.input-information {
+  font-size: 18px;
+  padding-left: 20px;
+}
+
+.label-information {
+  font-size: 12px;
+  font-weight: 700;
+  color: rgb(var(--white-color));
+  padding: 5px 20px;
+  background: rgb(var(--info-color));
+  border-radius: 500px;
+  width: auto;
+}
+
+.btn {
+  padding: 0;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 10px 15px;
+  user-select: none;
+  align-self: flex-end;
+}
+
+.btn-accept {
+  background: rgb(var(--warning-color));
+  color: rgb(var(--white-color));
+  border-radius: 5px;
+}
+
+.btn-accept > span {
+  margin-left: 15px;
+}
+
+.btn-accept:hover {
+  background: rgb(var(--info-color));
+}
+
+.__error {
+  background: rgb(var(--error-color));
+}
+
+.__success {
+  background: rgb(var(--success-color));
+}
+
+.__warning {
+  background: rgb(var(--warning-color));
+}
+
+.__primary {
+  background: rgb(var(--primary-color));
+}
+
+.content-label-information {
+  width: 150px;
+  display: flex;
+  justify-content: flex-end;
+}

@@ -1,0 +1,48 @@
+<div class="container-publication">
+  <div class="publication-header">
+    <div class="publications-header-img-profile" [routerLink]="[ '/profile', publication.user.username ]">
+        <img *ngIf="publication.user.image_profile === '' && publication.user.gender == 'male'" class="menu-item-img-profile__img" src="assets/img/male-profile.png">
+        <img *ngIf="publication.user.image_profile === '' && publication.user.gender == 'female'" class="menu-item-img-profile__img" src="assets/img/female-profile.png">
+        <img *ngIf="publication.user.image_profile" class="menu-item-img-profile__img" src="{{ url + '/user/public/image/' + publication.user.image_profile }}" alt="">
+    </div>
+    <div class="publications-header-description">
+      <div class="publications-header-description-username" [routerLink]="[ '/profile', publication.user.username ]">
+          {{ publication.user.first_name + ' ' + publication.user.last_name }} <span class="publications-header-description-username__nickname">- {{ publication.user.username }}</span>
+      </div>
+      <!-- <div class="publications-header-description-time">17 de marzo del 2018 a las 20:30</div> -->
+      <div class="publications-header-description-time">{{ publication.createdAt | amLocale:'es' | amTimeAgo:true }}</div>
+    </div>
+    <span *ngIf="publication.user.username === identity.username" class="label-icon-close" (click)="delete(publication.id, publication.filename ? 'image' : 'publication')"><fa-icon [icon]="faTimes"></fa-icon></span>
+  </div>
+  <div class="publication-body">
+    <div class="publication-body-description">
+      {{ publication.description }}
+    </div>
+    <div class="publication-body-image" *ngIf="publication.filename">
+        <img class="menu-item-img-profile__img" src="{{ url + '/user/public/image/' + publication.filename }}" alt="">
+    </div>
+  </div>
+  <div class="publication-info">
+    <div class="publication-info-reactions">
+      <div class="icon-reactions">
+        <fa-icon [icon]="faThumbsUp"></fa-icon>
+      </div>
+      <span class="icon-reactions-number">{{ countReactions }}</span>
+    </div>
+    <div class="publication-info-reactions">
+      <div class="icon-reactions  icon-reactions__comment">
+        <fa-icon [icon]="faCommentDots"></fa-icon>
+      </div>
+      <span class="icon-reactions-number">{{ publication.comments.length }}</span>
+    </div>
+  </div>
+  <div class="publication-buttons">
+    <div class="publication-buttons-button" [ngClass]="{ 'publication-buttons-button__hover': statusLiked }" (click)="like(publication.id, publication.filename ? 'image' : 'publication')">
+      <fa-icon [icon]="faThumbsUp"></fa-icon>
+      <span class="publication-buttons-button-text">Me gusta</span>
+    </div>
+  </div>
+  <div class="publication-comment">
+    <app-comments [publication]="publication"></app-comments>
+  </div>
+</div>

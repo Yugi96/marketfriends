@@ -1,0 +1,8 @@
+<app-to-post *ngIf="identity.username === userProfile.username" (submitOk)="refreshPublications($event)"></app-to-post>
+<div class="content-publications">
+  <app-publication *ngFor="let publication of arrayPublications" [publication]="publication" (submitOk)="refreshPublications($event)" ></app-publication>
+  <div *ngIf="isMorePublications" class="content-options-menu-footer" (click)="showMore()">
+    Ver más
+  </div>
+</div>
+

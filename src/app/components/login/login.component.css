@@ -1,0 +1,66 @@
+.form-body-logo {
+  width: 350px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 1.5em 0;
+}
+
+.logo-img {
+  width: 60%;
+  display: block;
+}
+
+.input {
+  width: 300px;
+  padding: .5em 1em;
+  outline: none;
+  border: none;
+  margin-bottom: 1em;
+  border: 1px solid rgb(var(--secondary-color));
+  text-align: center;
+  border-radius: 10px;
+}
+
+.form-body-fields {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+  flex-wrap: wrap;
+}
+
+.btn {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: .3em 1em;
+}
+
+.btn-signup {
+  background: rgb(var(--primary-color));
+  color: rgb(var(--white-color));
+  border-radius: 5px;
+  padding: .8em 1.5em;
+  margin-bottom: 1em;
+}
+
+.btn-signup:hover {
+  background: rgb(var(--secondary-color));
+}
+
+.btn-signup:disabled {
+  background: rgb(var(--primary-color));
+  color: rgb(var(--white-color));
+  cursor: no-drop;
+}
+
+.btn-restored-password {
+  color: rgb(var(--primary-color));
+}
+
+.btn-restored-password:hover {
+  color: rgb(var(--secondary-color));
+  text-decoration: underline;
+}

@@ -1,0 +1,14 @@
+<div class="dashed-item" (click)="getUserFriendClick({ username: friend.username, first_name: friend.first_name, last_name: friend.last_name })">
+  <div class="item-notification">
+    <div class="menu-item-img-profile item-notification-img-profile">
+      <img *ngIf="friend.image_profile.length === 0 && friend.gender == 'male'" class="content-friend-image-profile__img" src="assets/img/male-profile.png">
+      <img *ngIf="friend.image_profile.length === 0 && friend.gender == 'female'" class="content-friend-image-profile__img" src="assets/img/female-profile.png">
+      <img *ngIf="friend.image_profile.length !== 0" class="content-friend-image-profile__img"  src="{{ url + '/user/public/image/' + friend.image_profile }}" alt="">
+    </div>
+    <div class="item-notification-description">
+      <div class="item-notification-description-text">
+          {{ friend.first_name + ' ' + friend.last_name + ' - ' + friend.username}}
+      </div>
+    </div>
+  </div>
+</div>

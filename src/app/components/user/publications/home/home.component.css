@@ -1,0 +1,224 @@
+.dashed-separation {
+  border-right: 1px dashed rgb(var(--secondary-color));
+  padding: 0 10px;
+  height: 35px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  flex: 1;
+  cursor: pointer;
+  color: rgb(var(--primary-color));
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.dashed-separation:hover {
+  background: rgb(var(--secondary-color));
+  color: rgb(var(--white-color));
+}
+
+.dashed-separation:last-child {
+  border-right: 0;
+}
+
+.dashed-separation:first-child {
+  background: rgb(var(--primary-color));
+  cursor: text;
+}
+
+.full-name-profile {
+  font-weight: bold;
+  color: rgb(var(--white-color));
+}
+
+.btn {
+  padding: 0;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: .3em 1em;
+  user-select: none;
+}
+
+.content-header-header-menu-info-name {
+  position: absolute;
+  bottom: 0;
+  margin: 0;
+  padding: 10px 20px;
+  margin-bottom: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: rgb(var(--white-color));
+  font-size: 15px;
+  text-align: center;
+  font-weight: 700;
+  border-radius: 3px;
+  background: rgba(var(--white-color), .9);
+  color: rgb(var(--black-color));
+}
+
+.content-publications {
+  flex: 1;
+  overflow: auto;
+  width: 100%;
+  margin-top: 15px;
+  margin-bottom: 15px;
+}
+
+.btn-menu {
+  color: rgb(var(--primary-color));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.btn-menu:hover {
+  background: rgb(var(--secondary-color));
+  border-radius: 3px;
+  color: rgb(var(--white-color));
+}
+
+.content-header-profile {
+  width: calc(1100px - 160px);
+  height:100%;
+  display: flex;
+
+  /* height: 200px; */
+}
+
+.content-header-header-menu-info {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  background: rgb(var(--white-color));
+  min-width: 300px;
+  width: 100%;
+  height: 300px;
+  border-radius: 3px;
+  margin-top: 15px;
+  border: 1px solid rgba(var(--black-color), .2);
+  overflow: hidden;
+}
+
+.content-header-menu-profile {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-width: 300px;
+}
+
+.content-options-menu-footer {
+  padding: 10px;
+  font-weight: 700;
+  text-align: center;
+  color: rgb(var(--primary-color));
+  cursor: pointer;
+  background: rgb(var(--white-color));
+  border: 1px solid rgba(var(--black-color), .2);
+ }
+
+ .content-options-menu-footer:hover {
+  color: rgb(var(--secondary-color));
+  text-decoration: underline;
+ }
+
+.content-menu-profile {
+  min-width: 130px;
+  display: flex;
+  padding: 0;
+  margin: 0;
+  margin-top: 15px;
+  background: rgb(var(--white-color));
+  border-radius: 3px;
+  border: 1px solid rgba(var(--black-color), .2);
+  justify-content: space-around;
+  width: 100%;
+}
+
+.content-body-to-post {
+  font-size: 13px;
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: 15px;
+  background: rgb(var(--white-color));
+  border-radius: 3px;
+  border: 1px solid rgba(var(--black-color), .2);
+  width: 100%;
+}
+
+.content-body-to-post-header {
+  width: 100%;
+  padding: 5px 20px;
+  background: rgb(var(--primary-color));
+  color: rgb(var(--white-color));
+}
+
+.content-body-to-post-body__input {
+  width: 100%;
+  height: 50px;
+  padding: 10px 20px;
+  font-size: 20px;
+  resize: none;
+  border: none;
+  overflow: hidden;
+  min-height: 50px;
+  /* max-height: 50px; */
+}
+
+.btn-accept {
+  background: rgb(var(--info-color));
+  color: rgb(var(--white-color));
+  border-radius: 5px;
+  padding: 0 50px;
+  font-weight: 700;
+}
+
+.btn-accept:hover {
+  background: rgb(var(--success-color));
+}
+
+.content-body-to-post-body {
+  width: 100%;
+}
+
+.content-body-to-post-footer {
+  border-top: 1px dashed rgb(var(--primary-color));
+  width: 100%;
+  padding: 10px 20px;
+  display: flex;
+  justify-content: space-between;
+}
+
+
+.menu-item-img-profile {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  /* background: #000; */
+  /* border-radius: 50%; */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+
+
+.menu-item-img-profile__img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.content-body-profile {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  width: 100%;
+  padding-left: 15px;
+}
+
+
+/* publicacions */
+

@@ -1,0 +1,16 @@
+<div class="content-loading" *ngIf="loading" >
+  <div class="loading"></div>
+</div>
+<section class="content-login" *ngIf="!identity && loading === false">
+  <button [routerLink]="[ '/home' ]" class="btn btn-back"><fa-icon [icon]="faArrowLeft"></fa-icon></button>
+  <div class="content-form">
+    <div class="form-header">
+      <button [routerLink]="['signup']" class="btn btn-login-header" [routerLinkActive]="['btn-login-header__hover']">Iniciar Sesión</button>
+      <button [routerLink]="['signin']" class="btn btn-login-header" [routerLinkActive]="['btn-login-header__hover']">Registrarse</button>
+    </div>
+    <div class="form-body">
+      <div *ngIf="identity === undefined" class="loading"></div>
+      <router-outlet></router-outlet>
+    </div>
+  </div>
+</section>

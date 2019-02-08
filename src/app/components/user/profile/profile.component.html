@@ -1,0 +1,62 @@
+<div class="content-loading" *ngIf="loading" >
+  <div class="loading"></div>
+</div>
+<div class="content-header-profile" *ngIf="!loading">
+  <div class="content-header-menu-profile">
+    <div class="content-header-header-menu-info">
+      <div class="menu-item-img-profile">
+        <div *ngIf="userProfile.username === identity.username" (click)="showModal = true" class="btn-change-image-profile"><fa-icon [icon]="faCamera"></fa-icon></div>
+        <img *ngIf="userProfile.image_profile === '' && userProfile.gender == 'male'" class="menu-item-img-profile__img" src="assets/img/male-profile.png">
+        <img *ngIf="userProfile.image_profile === '' && userProfile.gender == 'female'" class="menu-item-img-profile__img" src="assets/img/female-profile.png">
+        <img *ngIf="userProfile.image_profile" class="menu-item-img-profile__img" src="{{ url + '/user/public/image/' + userProfile.image_profile }}" alt="">
+      </div>
+    </div>
+    <button (click)="addFriend(userProfile.username, 'FR04')" class="btn btn-accept btn-request" *ngIf="identity.username !== userProfile.username && codeRequest === 'FR05'"><fa-icon [icon]="faPlusCircle"></fa-icon><span>Añadir a mis amigos</span></button>
+    <button (click)="actionFriend('cancel', userProfile.username, 'FR05')" class="btn btn-error btn-request" *ngIf="identity.username !== userProfile.username && codeRequest === 'FR02'"><fa-icon [icon]="faUserMinus"></fa-icon><span>Eliminar de mis amigos</span></button>
+    <button (click)="actionFriend('cancel', userProfile.username, 'FR05')" class="btn btn-wait btn-request" *ngIf="identity.username !== userProfile.username && codeRequest === 'FR03'"><fa-icon [icon]="faClock"></fa-icon><span>Cancelar solicitud enviada</span></button>
+    <div class="content-btn-request" *ngIf="identity.username !== userProfile.username && codeRequest === 'FR04'">
+      <button (click)="actionFriend('accept', userProfile.username, 'FR02')" class="btn btn-accept btn-action __success-bg" ><fa-icon [icon]="faCheckCircle"></fa-icon><span>Aceptar solicitud</span></button>
+      <button (click)="actionFriend('cancel', userProfile.username, 'FR05')" class="btn btn-error btn-action"><fa-icon [icon]="faBan"></fa-icon><span>Cancelar solicitud</span></button>
+    </div>
+    <!-- <div class="content-counts __info">
+      <div class="content-counts-item">
+        <span class="count ">5k</span>
+        <fa-icon [icon]="faUsers"></fa-icon>
+        <span class="label">Amigos</span>
+      </div>
+      <div class="content-counts-item __error">
+        <span class="count ">100</span>
+        <fa-icon [icon]="faImages"></fa-icon>
+        <span class="label">Fotos</span>
+      </div>
+      <div class="content-counts-item __success">
+        <span class="count ">200</span>
+        <fa-icon [icon]="faClone"></fa-icon>
+        <span class="label">Publicaciones</span>
+      </div>
+    </div> -->
+  </div>
+  <div class="content-body-profile">
+    <ul class="content-menu-profile">
+      <li class="dashed-separation">
+        <span class="full-name-profile">{{ userProfile.first_name }} {{ userProfile.last_name }}</span>
+      </li>
+      <li class="dashed-separation" [routerLink]="['publications']" [routerLinkActive]="['dashed-separation__hover']">
+        Publicaciones
+      </li>
+      <li class="dashed-separation" [routerLink]="['information']" [routerLinkActive]="['dashed-separation__hover']">
+        Información
+      </li>
+      <li class="dashed-separation" [routerLink]="['friends']" [routerLinkActive]="['dashed-separation__hover']">
+        Amigos
+      </li>
+      <li class="dashed-separation" [routerLink]="['photos']" [routerLinkActive]="['dashed-separation__hover']">
+       Fotos
+      </li>
+    </ul>
+    <div class="content-routes">
+      <router-outlet></router-outlet>
+    </div>
+  </div>
+  <app-change-image-profile [hidden]="!showModal" (closeModal)="closeModal($event)"></app-change-image-profile>
+</div>

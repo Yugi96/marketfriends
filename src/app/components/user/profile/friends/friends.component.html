@@ -1,0 +1,3 @@
+<div class="content-friends">
+  <app-card-friend *ngFor="let friend of friends" [friend]="friend.Friend.username === userProfile.username ? friend.Me : friend.Friend "></app-card-friend>
+</div>
